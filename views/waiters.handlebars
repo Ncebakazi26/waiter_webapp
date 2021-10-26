@@ -1,0 +1,13 @@
+<h1>Please select the days in which you are available not more than three, Thank You</h1>
+
+<form action="/waiters/:username" method="POST">
+  <div class="d-md-flex ">
+    {{#each days}} 
+    <li class="btn bg-light m-4"> <input type="checkbox" id="day1" name="days" value="{{id}}">
+      <label> {{day}}</label><br>
+    </li>
+    {{/each}}
+    
+  </div>
+  <input class="btn bg-success" type="submit" value="Submit">
+</form>
