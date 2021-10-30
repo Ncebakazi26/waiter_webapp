@@ -16,7 +16,7 @@ var local = process.env.LOCAL || false;
 if (process.env.DATABASE_URL && !local) {
     useSSL = true;
 }
-const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/registration_numbers1';
+const connectionString = process.env.DATABASE_URL || 'postgresql://codex:pg123@localhost:5432/waiters';
 
 
 const pool = new Pool({
@@ -57,19 +57,19 @@ app.get('/', function(req, res,){
     res.render('index')
        
     });
-app.get('/waiters/:username',function(req,res){
+app.get('/waiters/:username', async function(req,res){
     var name = req.params.username;
     // console.log(name);
-    var days = [{id:1, day: "Sunday"},{id:2, day: "Monday"},{id:3, day: "Tuesday"},{id:4, day: "Wednsaday"},{id:5, day: "Thursday"},{id:6, day: "Friday"},{id:7, day: "Saturday"}]
+    var days = await  waiter.getDay()
     res.render('waiters',{
         days, name
     })
 
 } );
-
+// [{id:1, day: "Sunday"},{id:2, day: "Monday"},{id:3, day: "Tuesday"},{id:4, day: "Wednsaday"},{id:5, day: "Thursday"},{id:6, day: "Friday"},{id:7, day: "Saturday"}]
 app.post('/waiters/:username',function(req,res){
     var name = req.params.username;
-    var days = req.body.days
+    var days = req.body.day
     console.log("Waiter: "+name +' ' + "days: "+days);
     
     res.redirect(name);

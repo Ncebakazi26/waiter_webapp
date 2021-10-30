@@ -3,8 +3,8 @@
 <form action="/waiters/:username" method="POST">
   <div class="d-md-flex ">
     {{#each days}} 
-    <li class="btn bg-light m-4"> <input type="checkbox" id="day1" name="days" value="{{id}}">
-      <label> {{day}}</label><br>
+    <li class="btn bg-light m-4"> <input type="checkbox"  name="day" value="{{day_id}}">
+      <label> {{shift_days}}</label><br>
     </li>
     {{/each}}
     

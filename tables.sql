@@ -1,14 +1,18 @@
 create table waiter (
-	id serial not null primary key,
-    waiter_name text not null,	
+	waiter_id serial not null primary key,
+    waiter_name text not null	
 );
 create table shifts(
-	id serial not null primary key,
-	shift_days text not null,
+	day_id serial not null primary key,
+	shift_days text not null
 	
-	-- foreign key (town_id) references towns (town_id)
 );
 create table manager (
 	id serial not null primary key,
-    waiter_name text not null,	
+    waiter_id int not null,	
+	day_id int not null,
+	foreign key (waiter_id) references waiter (waiter_id),
+	foreign key (day_id) references shifts (day_id)
+
 );
+-- db name : waiters
