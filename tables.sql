@@ -15,4 +15,19 @@ create table manager (
 	foreign key (day_id) references shifts (day_id)
 
 );
+insert into shifts (shift_days) values ('Sunday');
+insert into shifts (shift_days) values ('Monday');
+insert into shifts (shift_days) values ('Tuesday');
+insert into shifts (shift_days) values ('Wednesday');
+insert into shifts (shift_days) values ('Thursday');
+insert into shifts (shift_days) values ('Friday');
+insert into shifts (shift_days) values ('Saturday');
+
+insert into waiter (waiter_name) values ('Akhona');
+insert into waiter (waiter_name) values ('Imolathe');
+insert into waiter (waiter_name) values ('Lihle');
+insert into waiter (waiter_name) values ('Nceba');
+insert into waiter (waiter_name) values ('Sinazo');
+
+
 -- db name : waiters
