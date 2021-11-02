@@ -67,12 +67,16 @@ app.get('/waiters/:username', async function(req,res){
 
 } );
 // [{id:1, day: "Sunday"},{id:2, day: "Monday"},{id:3, day: "Tuesday"},{id:4, day: "Wednsaday"},{id:5, day: "Thursday"},{id:6, day: "Friday"},{id:7, day: "Saturday"}]
-app.post('/waiters/:username',function(req,res){
+app.post('/waiters/:username',async function(req,res){
     var name = req.params.username;
     var days = req.body.day
     console.log("Waiter: "+name +' ' + "days: "+days);
     
     res.redirect(name);
+})
+app.get('/days', async function(req,res){
+    res.redirect('manager')
+
 })
 
 //app.get('/', waiterRoutes.homePage);
